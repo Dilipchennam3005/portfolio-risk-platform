@@ -1,0 +1,31 @@
+# .github/workflows/daily-refresh.yml
+# Triggers a Netlify rebuild every morning at 8:00am PST (16:00 UTC)
+# so the dashboard fetches fresh Yahoo Finance data on load.
+
+name: Daily Market Data Refresh
+
+on:
+  schedule:
+    # 16:00 UTC = 8:00am PST (UTC-8) / 9:00am PDT (UTC-7)
+    # Runs Mon–Fri only (market days)
+    - cron: "0 16 * * 1-5"
+
+  # Also allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  trigger-netlify-rebuild:
+    runs-on: ubuntu-latest
+    name: Trigger Netlify Build Hook
+
+    steps:
+      - name: Ping Netlify Build Hook
+        run: |
+          echo "Triggering Netlify rebuild at $(date -u)"
+          curl -s -X POST "${{ secrets.NETLIFY_BUILD_HOOK }}"
+          echo "Build triggered successfully"
+
+      - name: Log refresh time
+        run: |
+          echo "Daily refresh triggered at $(TZ='America/Los_Angeles' date)"
+          echo "Market opens in ~90 minutes"

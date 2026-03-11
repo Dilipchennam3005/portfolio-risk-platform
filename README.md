@@ -10,7 +10,7 @@
 
 > End-to-end quantitative risk analytics platform for a fictional $250M equity portfolio — built to demonstrate financial data engineering, statistical modeling, and interactive visualization skills relevant to buy-side and fintech analytics roles.
 
-**[🔴 Live Dashboard →](https://apex-portfolio-risk.netlify.app)**
+**[🔴 Live Dashboard →](https://portfolio-risk-platform.netlify.app)**
 
 ---
 

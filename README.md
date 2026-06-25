@@ -151,4 +151,4 @@ cd dashboard && npm install && npm run dev
 
 ---
 
-*Built by Dilip Chennam · MS Information Systems, Cal State Fullerton · Data Analyst at State Street*
+*Built by Dilip Chennam · MS Information Systems, Cal State Fullerton 
